@@ -116,7 +116,10 @@ resource "google_container_cluster" "primary" {
     horizontal_pod_autoscaling {
       disabled = !var.horizontal_pod_autoscaling
     }
-
+    
+    config_connector_config {
+      enabled = var.config_connector
+    }
   }
 
   datapath_provider = var.datapath_provider
